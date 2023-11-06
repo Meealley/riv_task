@@ -27,13 +27,13 @@ class CustomTextField extends StatelessWidget {
     return Container(
       width: AppConst.kWidth * 0.9,
       height: AppConst.kHeight * 0.06,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(
           Radius.circular(10),
         ),
       ),
       child: TextFormField(
-        style: appstyle(16, Colors.black, FontWeight.normal),
+        style: appstyle(16, Colors.black, FontWeight.w500),
         onChanged: onChanged,
         controller: controller,
         keyboardType: keyboardType,
@@ -44,25 +44,25 @@ class CustomTextField extends StatelessWidget {
           suffixIconColor: suffixIconColor,
           hintStyle: hintStyle,
           errorBorder: OutlineInputBorder(
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: Colors.red,
             ),
             borderRadius: BorderRadius.circular(12),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: Colors.black,
             ),
             borderRadius: BorderRadius.circular(12),
           ),
           disabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: Colors.grey,
             ),
             borderRadius: BorderRadius.circular(12),
           ),
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: Colors.black,
             ),
             borderRadius: BorderRadius.circular(12),

@@ -26,14 +26,14 @@ class PageOne extends StatelessWidget {
                 'assets/images/task_one.png',
               ),
             ),
-            HeightSpacer(hght: 50),
+            const HeightSpacer(hght: 50),
             Column(
               children: [
                 ReusableText(
                   text: "Stay ahead of your peers",
                   style: appstyle(25, Colors.black, FontWeight.w500),
                 ),
-                HeightSpacer(hght: 10),
+                const HeightSpacer(hght: 10),
                 Padding(
                   padding: EdgeInsets.symmetric(
                     horizontal: 30.w,

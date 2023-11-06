@@ -29,7 +29,7 @@ class CustomOutlnBtn extends StatelessWidget {
         width: width,
         decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.all(
+          borderRadius: const BorderRadius.all(
             Radius.circular(9),
           ),
           border: Border.all(width: 1, color: color2),

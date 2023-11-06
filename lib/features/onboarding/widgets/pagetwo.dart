@@ -4,7 +4,6 @@ import 'package:riv_task/common/utils/constants.dart';
 import 'package:riv_task/common/widgets/appstyle.dart';
 import 'package:riv_task/common/widgets/custom_btn.dart';
 import 'package:riv_task/common/widgets/heightspacer.dart';
-import 'package:riv_task/common/widgets/reusable_text.dart';
 // import 'package:riv_task/features/todo/pages/loginpage.dart';
 
 import '../../auth/pages/login_page.dart';
@@ -30,13 +29,13 @@ class PageTwo extends StatelessWidget {
                 'assets/images/task_two.webp',
               ),
             ),
-            HeightSpacer(hght: 100),
+            const HeightSpacer(hght: 100),
             CustomOutlnBtn(
               onTap: () {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => LoginPage(),
+                    builder: (context) => const LoginPage(),
                   ),
                 );
               },

@@ -32,9 +32,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
       body: Stack(
         children: [
           PageView(
-            physics: AlwaysScrollableScrollPhysics(),
+            physics: const AlwaysScrollableScrollPhysics(),
             controller: pageController,
-            children: [PageOne(), PageTwo()],
+            children: const [PageOne(), PageTwo()],
           ),
           Align(
             alignment: Alignment.bottomCenter,
@@ -51,16 +51,16 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       GestureDetector(
                         onTap: () {
                           pageController.nextPage(
-                              duration: Duration(milliseconds: 300),
+                              duration: const Duration(milliseconds: 300),
                               curve: Curves.ease);
                         },
-                        child: Icon(
+                        child: const Icon(
                           FontAwesome.chevron_circle_right,
                           size: 25,
                           color: AppConst.kBkDark,
                         ),
                       ),
-                      WidthSpacer(wdth: 6),
+                      const WidthSpacer(wdth: 6),
                       ReusableText(
                         text: "Skip",
                         style: appstyle(

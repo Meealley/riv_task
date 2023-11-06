@@ -1,3 +1,4 @@
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -16,6 +17,19 @@ class LoginPage extends ConsumerStatefulWidget {
 }
 
 class _LoginPageState extends ConsumerState<LoginPage> {
+  final TextEditingController phone = TextEditingController();
+  Country country = Country(
+      phoneCode: '234',
+      countryCode: 'NGN',
+      e164Sc: 0,
+      geographic: true,
+      level: 1,
+      name: 'Nigeria',
+      example: 'Nigeria',
+      displayName: "Nigeria",
+      displayNameNoCountryCode: 'NG',
+      e164Key: "");
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +46,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                 'assets/images/login.webp',
               ),
             ),
-            HeightSpacer(hght: 20),
+            const HeightSpacer(hght: 20),
             Container(
               alignment: Alignment.centerLeft,
               padding: EdgeInsets.only(left: 16.w),
@@ -40,13 +54,44 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                   text: "Please enter your phone number",
                   style: appstyle(17, Colors.black, FontWeight.w500)),
             ),
-            HeightSpacer(hght: 20),
+            const HeightSpacer(hght: 20),
             CustomTextField(
-                keyboardType: TextInputType.number,
-                hintText: "Enter number",
-                suffixIconColor: Colors.black,
-                hintStyle: appstyle(15, Colors.black, FontWeight.w400)),
-            HeightSpacer(hght: 20),
+              preffixIcon: Container(
+                padding: const EdgeInsets.all(13),
+                child: GestureDetector(
+                  onTap: () {
+                    showCountryPicker(
+                        context: context,
+                        countryListTheme: CountryListThemeData(
+                            backgroundColor: AppConst.kLight,
+                            textStyle:
+                                appstyle(15, Colors.black, FontWeight.normal),
+                            bottomSheetHeight: AppConst.kHeight * 0.6,
+                            borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                topRight: Radius.circular(10))),
+                        onSelect: (code) {
+                          setState(() {});
+                        });
+                  },
+                  child: ReusableText(
+                    text: '${country.flagEmoji} + ${country.phoneCode}',
+                    style: appstyle(15, Colors.black, FontWeight.w500),
+                  ),
+                ),
+              ),
+              controller: phone,
+              // onChanged: ,
+              keyboardType: TextInputType.number,
+              hintText: "Enter your number",
+              suffixIconColor: Colors.black,
+              hintStyle: appstyle(
+                15,
+                Colors.black,
+                FontWeight.w400,
+              ),
+            ),
+            const HeightSpacer(hght: 30),
             CustomOutlnBtn(
                 width: AppConst.kWidth * 0.9,
                 height: AppConst.kHeight * 0.06,
