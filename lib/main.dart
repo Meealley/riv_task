@@ -22,9 +22,11 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           title: "Rive Todo",
           theme: ThemeData(
-              scaffoldBackgroundColor: AppConst.kBkDark, useMaterial3: true),
+              // scaffoldBackgroundColor: AppConst.kBkDark,
+              // useMaterial3: true,
+              ),
           debugShowCheckedModeBanner: false,
-          themeMode: ThemeMode.dark,
+          // themeMode: ThemeMode.dark,
           home: OnboardingPage(),
         );
       },
