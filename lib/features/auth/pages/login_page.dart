@@ -8,6 +8,7 @@ import 'package:riv_task/common/widgets/custom_btn.dart';
 import 'package:riv_task/common/widgets/custom_textfield.dart';
 import 'package:riv_task/common/widgets/heightspacer.dart';
 import 'package:riv_task/common/widgets/reusable_text.dart';
+import 'package:riv_task/features/auth/pages/otp_page.dart';
 
 class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});
@@ -93,6 +94,14 @@ class _LoginPageState extends ConsumerState<LoginPage> {
             ),
             const HeightSpacer(hght: 30),
             CustomOutlnBtn(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => OtpPage(),
+                    ),
+                  );
+                },
                 width: AppConst.kWidth * 0.9,
                 height: AppConst.kHeight * 0.06,
                 color: Colors.amber,
