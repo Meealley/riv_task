@@ -9,7 +9,7 @@ class CustomTextField extends StatelessWidget {
   final Widget? suffixIcon;
   final Widget? preffixIcon;
   final TextStyle hintStyle;
-  final Color suffixIconColor;
+  final Color? suffixIconColor;
   final void Function(String)? onChanged;
   const CustomTextField(
       {super.key,
@@ -17,7 +17,7 @@ class CustomTextField extends StatelessWidget {
       required this.hintText,
       this.suffixIcon,
       this.preffixIcon,
-      required this.suffixIconColor,
+      this.suffixIconColor,
       required this.hintStyle,
       required this.controller,
       this.onChanged});

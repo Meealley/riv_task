@@ -29,6 +29,12 @@ class OtpPage extends StatelessWidget {
               HeightSpacer(hght: AppConst.kHeight * 0.1),
               Pinput(
                 length: 4,
+                onCompleted: (value) {
+                  if (value.length == 4) {}
+                },
+                onSubmitted: (value) {
+                  if (value.length == 4) {}
+                },
               )
             ],
           ),
