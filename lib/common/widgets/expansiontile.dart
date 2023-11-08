@@ -19,26 +19,26 @@ class XpansionTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        color: Colors.red,
+      decoration: const BoxDecoration(
+        color: Colors.grey,
         borderRadius: BorderRadius.all(
           Radius.circular(10),
         ),
       ),
       child: Theme(
+        data: Theme.of(context).copyWith(dividerColor: Colors.black),
         child: ExpansionTile(
           title: BottomTitles(
             text2: text2,
             text: text,
           ),
-          tilePadding: EdgeInsets.zero,
+          tilePadding: const EdgeInsets.only(right: 10),
           childrenPadding: EdgeInsets.zero,
           onExpansionChanged: onExpansionChanged,
           controlAffinity: ListTileControlAffinity.trailing,
           trailing: trailing,
           children: children,
         ),
-        data: Theme.of(context).copyWith(dividerColor: Colors.black),
       ),
     );
   }

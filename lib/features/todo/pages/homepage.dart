@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:intl/intl.dart';
 import 'package:riv_task/common/utils/constants.dart';
 import 'package:riv_task/common/widgets/appstyle.dart';
 import 'package:riv_task/common/widgets/custom_textfield.dart';
@@ -9,6 +10,7 @@ import 'package:riv_task/common/widgets/expansiontile.dart';
 import 'package:riv_task/common/widgets/heightspacer.dart';
 import 'package:riv_task/common/widgets/reusable_text.dart';
 import 'package:riv_task/common/widgets/widthspacer.dart';
+import 'package:riv_task/features/todo/widgets/todo_tile.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -31,10 +33,12 @@ class _HomePageState extends ConsumerState<HomePage>
         elevation: 2,
         automaticallyImplyLeading: false,
         bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(85),
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,7 +50,7 @@ class _HomePageState extends ConsumerState<HomePage>
                     Container(
                       width: 25.w,
                       height: 25.h,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.black,
                         borderRadius: BorderRadius.all(
                           Radius.circular(20),
@@ -54,7 +58,7 @@ class _HomePageState extends ConsumerState<HomePage>
                       ),
                       child: GestureDetector(
                         onTap: () {},
-                        child: Icon(
+                        child: const Icon(
                           FontAwesome.plus,
                           color: Colors.white,
                           size: 18,
@@ -64,46 +68,45 @@ class _HomePageState extends ConsumerState<HomePage>
                   ],
                 ),
               ),
-              HeightSpacer(hght: 12),
+              const HeightSpacer(hght: 12),
               CustomTextField(
                 keyboardType: TextInputType.name,
                 hintText: "Search",
                 preffixIcon: Container(
-                  padding: EdgeInsets.all(1),
+                  padding: const EdgeInsets.all(1),
                   child: GestureDetector(
                     onTap: () {},
-                    child: Icon(
+                    child: const Icon(
                       FontAwesome.search,
                       color: Colors.black,
                       size: 20,
                     ),
                   ),
                 ),
-                suffixIcon: Icon(
+                suffixIcon: const Icon(
                   Ionicons.filter,
                   color: Colors.black,
                 ),
                 hintStyle: appstyle(17, Colors.black, FontWeight.normal),
                 controller: search,
               ),
-              HeightSpacer(hght: 20),
+              const HeightSpacer(hght: 20),
             ],
           ),
-          preferredSize: Size.fromHeight(85),
         ),
       ),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
             horizontal: 15,
           ),
           child: ListView(
             children: [
-              HeightSpacer(hght: 20),
+              const HeightSpacer(hght: 20),
               Row(
                 children: [
-                  Icon(FontAwesome.calendar),
-                  WidthSpacer(wdth: 5),
+                  const Icon(FontAwesome.calendar),
+                  const WidthSpacer(wdth: 5),
                   ReusableText(
                     text: "Today's Tasks",
                     style: appstyle(
@@ -114,9 +117,9 @@ class _HomePageState extends ConsumerState<HomePage>
                   )
                 ],
               ),
-              HeightSpacer(hght: 20),
+              const HeightSpacer(hght: 20),
               Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.yellow,
                   borderRadius: BorderRadius.all(
                     Radius.circular(10),
@@ -126,7 +129,7 @@ class _HomePageState extends ConsumerState<HomePage>
                   indicatorSize: TabBarIndicatorSize.label,
                   indicator: BoxDecoration(
                     color: Colors.grey.shade200,
-                    borderRadius: BorderRadius.all(
+                    borderRadius: const BorderRadius.all(
                       Radius.circular(10),
                     ),
                   ),
@@ -150,7 +153,7 @@ class _HomePageState extends ConsumerState<HomePage>
                     ),
                     Tab(
                       child: Container(
-                        padding: EdgeInsets.only(left: 10),
+                        padding: const EdgeInsets.only(left: 10),
                         width: AppConst.kWidth * 0.5,
                         child: Center(
                           child: ReusableText(
@@ -163,14 +166,14 @@ class _HomePageState extends ConsumerState<HomePage>
                   ],
                 ),
               ),
-              HeightSpacer(
+              const HeightSpacer(
                 hght: 20,
               ),
               SizedBox(
                 height: AppConst.kHeight * 0.3,
                 width: AppConst.kWidth,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.all(
+                  borderRadius: const BorderRadius.all(
                     Radius.circular(10),
                   ),
                   child: TabBarView(
@@ -179,6 +182,16 @@ class _HomePageState extends ConsumerState<HomePage>
                       Container(
                         color: Colors.green,
                         height: AppConst.kHeight * 0.3,
+                        child: ListView(
+                          children: const [
+                            TodoTile(
+                              title: "Read your books",
+                              description: "You have to start reading son!",
+                              start: '18:00',
+                              end: "20:00",
+                            )
+                          ],
+                        ),
                       ),
                       Container(
                         color: Colors.grey,
@@ -188,12 +201,22 @@ class _HomePageState extends ConsumerState<HomePage>
                   ),
                 ),
               ),
-              HeightSpacer(hght: 15),
+              const HeightSpacer(hght: 15),
               XpansionTile(
-                  text: "Tomorrow's task",
-                  text2: "Tasks are shown here",
-                  trailing: Icon(Icons.arrow_circle_down),
-                  children: [])
+                text: DateFormat.yMMMMEEEEd()
+                    .format(DateTime.now().add(const Duration(days: 1))),
+                text2: "Tasks are shown here",
+                trailing: const Icon(Icons.arrow_circle_down),
+                children: const [],
+              ),
+              const HeightSpacer(hght: 18),
+              XpansionTile(
+                text: DateFormat.yMMMMEEEEd()
+                    .format(DateTime.now().add(const Duration(days: 2))),
+                text2: "Next tomorrow task",
+                trailing: const Icon(Icons.arrow_circle_down),
+                children: const [],
+              ),
             ],
           ),
         ),

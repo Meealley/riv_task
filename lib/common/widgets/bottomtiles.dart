@@ -17,7 +17,7 @@ class BottomTitles extends StatelessWidget {
     return SizedBox(
       width: AppConst.kWidth,
       child: Padding(
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -26,9 +26,9 @@ class BottomTitles extends StatelessWidget {
                 return Container(
                   height: 80,
                   width: 5,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     //TODO: add dynamic color
-                    color: Colors.green,
+                    color: Colors.purple,
                     borderRadius: BorderRadius.all(
                       Radius.circular(10),
                     ),
@@ -36,9 +36,9 @@ class BottomTitles extends StatelessWidget {
                 );
               },
             ),
-            WidthSpacer(wdth: 10),
+            const WidthSpacer(wdth: 10),
             Padding(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -46,10 +46,10 @@ class BottomTitles extends StatelessWidget {
                     text: text,
                     style: appstyle(17, Colors.black, FontWeight.w300),
                   ),
-                  HeightSpacer(hght: 10),
+                  const HeightSpacer(hght: 10),
                   ReusableText(
                     text: text2,
-                    style: appstyle(17, Colors.black, FontWeight.w300),
+                    style: appstyle(15, Colors.black, FontWeight.w300),
                   )
                 ],
               ),

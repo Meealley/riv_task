@@ -21,7 +21,7 @@ class OtpPage extends StatelessWidget {
             children: [
               HeightSpacer(hght: AppConst.kHeight * 0.15),
               Padding(
-                padding: EdgeInsets.all(12),
+                padding: const EdgeInsets.all(12),
                 child: ReusableText(
                     text: "Enter the otp sent to your phone",
                     style: appstyle(18, Colors.black, FontWeight.w600)),
