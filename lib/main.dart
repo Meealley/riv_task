@@ -1,7 +1,7 @@
+import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:riv_task/features/auth/pages/test_page.dart';
 import 'package:riv_task/features/todo/pages/homepage.dart';
 
 void main() {
@@ -10,6 +10,12 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+  // static final defaultLightColorScheme =
+  //     ColorScheme.fromSwatch(primarySwatch: Colors.blue);
+  // static final defaultDarkColorScheme =
+  //     ColorScheme.fromSwatch(
+  //       brightness: Brightness.dark,
+  //       primarySwatch: Colors.blue);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +32,7 @@ class MyApp extends StatelessWidget {
               ),
           debugShowCheckedModeBanner: false,
           // themeMode: ThemeMode.dark,
-          home: const TestPage(),
+          home: const HomePage(),
         );
       },
     );

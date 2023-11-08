@@ -10,6 +10,7 @@ import 'package:riv_task/common/widgets/expansiontile.dart';
 import 'package:riv_task/common/widgets/heightspacer.dart';
 import 'package:riv_task/common/widgets/reusable_text.dart';
 import 'package:riv_task/common/widgets/widthspacer.dart';
+import 'package:riv_task/features/todo/controllers/xpansion_provider.dart';
 import 'package:riv_task/features/todo/widgets/todo_tile.dart';
 
 class HomePage extends ConsumerStatefulWidget {
@@ -208,17 +209,59 @@ class _HomePageState extends ConsumerState<HomePage>
                 text: DateFormat.yMMMMEEEEd()
                     .format(DateTime.now().add(const Duration(days: 1))),
                 text2: "Tasks are shown here",
-                trailing: const Icon(Icons.arrow_circle_down),
-                children: const [],
+                onExpansionChanged: (bool expanded) {
+                  ref.read(xpansionStateProvider.notifier).setStart(!expanded);
+                },
+                trailing: ref.watch(xpansionStateProvider)
+                    ? const Icon(
+                        Icons.arrow_circle_down,
+                        color: Colors.purple,
+                      )
+                    : const Icon(
+                        Icons.arrow_circle_up,
+                        color: Colors.purple,
+                      ),
+                children: [
+                  TodoTile(
+                    title: "Read your books",
+                    description: "You",
+                    start: '18:00',
+                    end: "20:00",
+                    switcher: Switch(value: true, onChanged: (value) {}),
+                  ),
+                  // ReusableText(
+                  //     text: "I Plan to read my boooks all day long",
+                  //     style: appstyle(16, Colors.black, FontWeight.normal))
+                ],
               ),
               const HeightSpacer(hght: 18),
               XpansionTile(
                 text: DateFormat.yMMMMEEEEd()
                     .format(DateTime.now().add(const Duration(days: 2))),
                 text2: "Next tomorrow task",
-                trailing: const Icon(Icons.arrow_circle_down),
-                children: const [],
+                onExpansionChanged: (bool expanded) {
+                  ref.read(xpansionState0Provider.notifier).setStart(!expanded);
+                },
+                trailing: ref.watch(xpansionState0Provider)
+                    ? const Icon(
+                        Icons.arrow_circle_down,
+                        color: Colors.purple,
+                      )
+                    : const Icon(
+                        Icons.arrow_circle_up,
+                        color: Colors.purple,
+                      ),
+                children: [
+                  TodoTile(
+                    title: "Read your books",
+                    description: "You",
+                    start: '18:00',
+                    end: "20:00",
+                    switcher: Switch(value: true, onChanged: (value) {}),
+                  ),
+                ],
               ),
+              const HeightSpacer(hght: 18),
             ],
           ),
         ),

@@ -28,6 +28,8 @@ class XpansionTile extends StatelessWidget {
       child: Theme(
         data: Theme.of(context).copyWith(dividerColor: Colors.black),
         child: ExpansionTile(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10))),
           title: BottomTitles(
             text2: text2,
             text: text,

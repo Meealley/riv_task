@@ -45,6 +45,8 @@ dependencies:
   intl: ^0.18.1
   riverpod_annotation: ^2.3.0
   build_runner: ^2.4.6
+  sqflite: ^2.3.0
+  dynamic_color: ^1.6.8
 
 dev_dependencies:
   flutter_test:
