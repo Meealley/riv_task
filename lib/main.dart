@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:riv_task/features/auth/pages/test_page.dart';
 import 'package:riv_task/features/todo/pages/homepage.dart';
 
 void main() {
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
               ),
           debugShowCheckedModeBanner: false,
           // themeMode: ThemeMode.dark,
-          home: const HomePage(),
+          home: const TestPage(),
         );
       },
     );

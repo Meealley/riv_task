@@ -181,14 +181,16 @@ class _HomePageState extends ConsumerState<HomePage>
                     children: [
                       Container(
                         color: Colors.green,
-                        height: AppConst.kHeight * 0.3,
+                        height: AppConst.kHeight * 0.4,
                         child: ListView(
-                          children: const [
+                          children: [
                             TodoTile(
                               title: "Read your books",
-                              description: "You have to start reading son!",
+                              description: "You",
                               start: '18:00',
                               end: "20:00",
+                              switcher:
+                                  Switch(value: true, onChanged: (value) {}),
                             )
                           ],
                         ),
