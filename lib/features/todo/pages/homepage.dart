@@ -14,7 +14,11 @@ import 'package:riv_task/common/widgets/widthspacer.dart';
 import 'package:riv_task/features/todo/controllers/todo/todo_provider.dart';
 import 'package:riv_task/features/todo/controllers/xpansion_provider.dart';
 import 'package:riv_task/features/todo/pages/add_todo.dart';
+import 'package:riv_task/features/todo/pages/dayAfterTomorrow.dart';
+import 'package:riv_task/features/todo/pages/tomorrow_list.dart';
 import 'package:riv_task/features/todo/widgets/todo_tile.dart';
+
+import 'todays_task.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -131,7 +135,7 @@ class _HomePageState extends ConsumerState<HomePage>
               const HeightSpacer(hght: 20),
               Container(
                 decoration: const BoxDecoration(
-                  color: Colors.yellow,
+                  color: Colors.black12,
                   borderRadius: BorderRadius.all(
                     Radius.circular(10),
                   ),
@@ -139,7 +143,7 @@ class _HomePageState extends ConsumerState<HomePage>
                 child: TabBar(
                   indicatorSize: TabBarIndicatorSize.label,
                   indicator: BoxDecoration(
-                    color: Colors.grey.shade200,
+                    color: Colors.purple.shade200,
                     borderRadius: const BorderRadius.all(
                       Radius.circular(10),
                     ),
@@ -207,97 +211,14 @@ class _HomePageState extends ConsumerState<HomePage>
                 ),
               ),
               const HeightSpacer(hght: 15),
-              XpansionTile(
-                text: DateFormat.yMMMMEEEEd()
-                    .format(DateTime.now().add(const Duration(days: 1))),
-                text2: "Tasks are shown here",
-                onExpansionChanged: (bool expanded) {
-                  ref.read(xpansionStateProvider.notifier).setStart(!expanded);
-                },
-                trailing: ref.watch(xpansionStateProvider)
-                    ? const Icon(
-                        Icons.arrow_circle_down,
-                        color: Colors.purple,
-                      )
-                    : const Icon(
-                        Icons.arrow_circle_up,
-                        color: Colors.purple,
-                      ),
-                children: [
-                  TodoTile(
-                    title: "Read your books",
-                    description: "You",
-                    start: '18:00',
-                    end: "20:00",
-                    switcher: Switch(value: true, onChanged: (value) {}),
-                  ),
-                  // ReusableText(
-                  //     text: "I Plan to read my boooks all day long",
-                  //     style: appstyle(16, Colors.black, FontWeight.normal))
-                ],
-              ),
+              TomorrowList(),
               const HeightSpacer(hght: 18),
-              XpansionTile(
-                text: DateFormat.yMMMMEEEEd()
-                    .format(DateTime.now().add(const Duration(days: 2))),
-                text2: "Next tomorrow task",
-                onExpansionChanged: (bool expanded) {
-                  ref.read(xpansionState0Provider.notifier).setStart(!expanded);
-                },
-                trailing: ref.watch(xpansionState0Provider)
-                    ? const Icon(
-                        Icons.arrow_circle_down,
-                        color: Colors.purple,
-                      )
-                    : const Icon(
-                        Icons.arrow_circle_up,
-                        color: Colors.purple,
-                      ),
-                children: [
-                  TodoTile(
-                    title: "Read your books",
-                    description: "You",
-                    start: '18:00',
-                    end: "20:00",
-                    switcher: Switch(value: true, onChanged: (value) {}),
-                  ),
-                ],
-              ),
+              DayAfterTomorrowList(),
               const HeightSpacer(hght: 18),
             ],
           ),
         ),
       ),
-    );
-  }
-}
-
-class TodayTask extends ConsumerWidget {
-  const TodayTask({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    List<Task> listData = ref.read(todoStateProvider);
-    String today = ref.read(todoStateProvider.notifier).getToday();
-
-    var todayList = listData
-        .where((element) =>
-            element.isCompleted == 0 && element.date!.contains(today))
-        .toList();
-    return ListView.builder(
-      itemCount: todayList.length,
-      itemBuilder: (context, index) {
-        final data = todayList[index];
-        return TodoTile(
-          color: Colors.red,
-          title: data.title,
-          description: data.desc,
-          start: data.startTime,
-          end: data.endTime,
-        );
-      },
     );
   }
 }

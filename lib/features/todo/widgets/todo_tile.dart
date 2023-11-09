@@ -84,7 +84,7 @@ class TodoTile extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Container(
-                                  width: AppConst.kWidth * 0.3,
+                                  width: AppConst.kWidth * 0.2,
                                   height: 25.h,
                                   decoration: BoxDecoration(
                                     // border: Border.all(

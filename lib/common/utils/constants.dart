@@ -18,3 +18,13 @@ class AppConst {
   static double kHeight = 825.h;
   // static double kRadius = 12.h;
 }
+
+List<dynamic> colors = [
+  Colors.blue,
+  Colors.green,
+  Colors.red,
+  Colors.purple,
+  Colors.yellow,
+  Colors.pink.shade300,
+  Colors.black
+];

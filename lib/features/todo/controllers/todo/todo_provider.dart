@@ -1,8 +1,13 @@
+import 'dart:math';
+
 import 'package:riv_task/common/helpers/db_helper.dart';
 import 'package:riv_task/common/models/task_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+import '../../../../common/utils/constants.dart';
 part 'todo_provider.g.dart';
 
+// import 'dart:math';
 @riverpod
 class TodoState extends _$TodoState {
   @override
@@ -18,6 +23,12 @@ class TodoState extends _$TodoState {
   void addItem(Task task) async {
     await DBHelper.createItem(task);
     refresh();
+  }
+
+  dynamic getRandomColor() {
+    Random random = Random();
+    int randomIndex = random.nextInt(colors.length);
+    return colors[randomIndex];
   }
 
   void updateItem(int id, String title, String desc, int isCompleted,
@@ -45,6 +56,11 @@ class TodoState extends _$TodoState {
 
   String getTomorrow() {
     DateTime tomorrow = DateTime.now().add(const Duration(days: 1));
+    return tomorrow.toString().substring(0, 10);
+  }
+
+  String dayAfterTomorrow() {
+    DateTime tomorrow = DateTime.now().add(const Duration(days: 2));
     return tomorrow.toString().substring(0, 10);
   }
 

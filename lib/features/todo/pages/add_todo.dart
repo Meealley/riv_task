@@ -33,6 +33,7 @@ class _AddTaskState extends ConsumerState<AddTask> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.purple.shade100,
         elevation: 1,
         title: ReusableText(
           text: "Add tasks",
@@ -70,7 +71,7 @@ class _AddTaskState extends ConsumerState<AddTask> {
               width: AppConst.kWidth,
               color2: Colors.yellow,
               height: 53,
-              color: Colors.blue,
+              color: Colors.purple,
               text: scheduledDate == ""
                   ? "Set Date"
                   : DateFormat.yMMMMEEEEd().format(
@@ -106,7 +107,7 @@ class _AddTaskState extends ConsumerState<AddTask> {
                   width: AppConst.kWidth * 0.4,
                   color2: Colors.yellow,
                   height: 53,
-                  color: Colors.blue,
+                  color: Colors.purple,
                   text: startTime == ""
                       ? "Start time"
                       : DateFormat.Hm().format(DateTime.parse(startTime)),
@@ -125,7 +126,7 @@ class _AddTaskState extends ConsumerState<AddTask> {
                   width: AppConst.kWidth * 0.4,
                   color2: Colors.yellow,
                   height: 53,
-                  color: Colors.blue,
+                  color: Colors.purple,
                   text: endTime == ""
                       ? "End time"
                       : DateFormat.Hm().format(DateTime.parse(endTime)),
