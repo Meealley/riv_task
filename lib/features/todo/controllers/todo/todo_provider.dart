@@ -44,14 +44,14 @@ class TodoState extends _$TodoState {
   }
 
   String getTomorrow() {
-    DateTime tomorrow = DateTime.now().add(Duration(days: 1));
+    DateTime tomorrow = DateTime.now().add(const Duration(days: 1));
     return tomorrow.toString().substring(0, 10);
   }
 
   List<String> last30days() {
     DateTime today = DateTime.now();
     DateTime oneMonthAgo = today.subtract(
-      Duration(days: 30),
+      const Duration(days: 30),
     );
 
     List<String> dates = [];

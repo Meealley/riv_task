@@ -30,7 +30,7 @@ class TestPage extends ConsumerWidget {
                     .read(codeStateProvider.notifier)
                     .setStart("Hello, MujinPark");
               },
-              child: Text("Press Me"),
+              child: const Text("Press Me"),
             ),
           ],
         ),

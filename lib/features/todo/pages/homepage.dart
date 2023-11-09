@@ -11,6 +11,7 @@ import 'package:riv_task/common/widgets/heightspacer.dart';
 import 'package:riv_task/common/widgets/reusable_text.dart';
 import 'package:riv_task/common/widgets/widthspacer.dart';
 import 'package:riv_task/features/todo/controllers/xpansion_provider.dart';
+import 'package:riv_task/features/todo/pages/add_todo.dart';
 import 'package:riv_task/features/todo/widgets/todo_tile.dart';
 
 class HomePage extends ConsumerStatefulWidget {
@@ -58,7 +59,12 @@ class _HomePageState extends ConsumerState<HomePage>
                         ),
                       ),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const AddTask()));
+                        },
                         child: const Icon(
                           FontAwesome.plus,
                           color: Colors.white,
