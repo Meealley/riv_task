@@ -15,7 +15,8 @@ class TodoTile extends StatelessWidget {
   final Color? color;
   final Widget? editWidget;
   final Widget? switcher;
-  final void Function()? deleteTap;
+
+  final VoidCallback? deleteTap;
 
   const TodoTile(
       {super.key,

@@ -12,7 +12,7 @@ class Task {
   int? id;
   String? title;
   String? desc;
-  String? isCompleted;
+  int? isCompleted;
   String? date;
   String? startTime;
   String? endTime;

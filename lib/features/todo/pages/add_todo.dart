@@ -151,7 +151,7 @@ class _AddTaskState extends ConsumerState<AddTask> {
                   Task task = Task(
                     title: title.text,
                     desc: desc.text,
-                    isCompleted: "0",
+                    isCompleted: 0,
                     date: scheduledDate,
                     startTime: startTime,
                     endTime: endTime,

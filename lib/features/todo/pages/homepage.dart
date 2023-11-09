@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:riv_task/common/models/task_model.dart';
 import 'package:riv_task/common/utils/constants.dart';
 import 'package:riv_task/common/widgets/appstyle.dart';
 import 'package:riv_task/common/widgets/custom_textfield.dart';
@@ -10,6 +11,7 @@ import 'package:riv_task/common/widgets/expansiontile.dart';
 import 'package:riv_task/common/widgets/heightspacer.dart';
 import 'package:riv_task/common/widgets/reusable_text.dart';
 import 'package:riv_task/common/widgets/widthspacer.dart';
+import 'package:riv_task/features/todo/controllers/todo/todo_provider.dart';
 import 'package:riv_task/features/todo/controllers/xpansion_provider.dart';
 import 'package:riv_task/features/todo/pages/add_todo.dart';
 import 'package:riv_task/features/todo/widgets/todo_tile.dart';
@@ -29,6 +31,8 @@ class _HomePageState extends ConsumerState<HomePage>
 
   @override
   Widget build(BuildContext context) {
+    ref.watch(todoStateProvider.notifier).refresh();
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -187,19 +191,11 @@ class _HomePageState extends ConsumerState<HomePage>
                     controller: tabController,
                     children: [
                       Container(
-                        color: Colors.green,
+                        color: Colors.purple.shade100,
                         height: AppConst.kHeight * 0.4,
-                        child: ListView(
-                          children: [
-                            TodoTile(
-                              title: "Read your books",
-                              description: "You",
-                              start: '18:00',
-                              end: "20:00",
-                              switcher:
-                                  Switch(value: true, onChanged: (value) {}),
-                            )
-                          ],
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: TodayTask(),
                         ),
                       ),
                       Container(
@@ -272,6 +268,36 @@ class _HomePageState extends ConsumerState<HomePage>
           ),
         ),
       ),
+    );
+  }
+}
+
+class TodayTask extends ConsumerWidget {
+  const TodayTask({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    List<Task> listData = ref.read(todoStateProvider);
+    String today = ref.read(todoStateProvider.notifier).getToday();
+
+    var todayList = listData
+        .where((element) =>
+            element.isCompleted == 0 && element.date!.contains(today))
+        .toList();
+    return ListView.builder(
+      itemCount: todayList.length,
+      itemBuilder: (context, index) {
+        final data = todayList[index];
+        return TodoTile(
+          color: Colors.red,
+          title: data.title,
+          description: data.desc,
+          start: data.startTime,
+          end: data.endTime,
+        );
+      },
     );
   }
 }
