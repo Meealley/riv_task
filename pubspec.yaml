@@ -47,6 +47,7 @@ dependencies:
   build_runner: ^2.4.6
   sqflite: ^2.3.0
   dynamic_color: ^1.6.8
+  flutter_datetime_picker_plus: ^2.1.0
 
 dev_dependencies:
   flutter_test:

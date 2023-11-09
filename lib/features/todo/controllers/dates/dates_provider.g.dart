@@ -6,11 +6,12 @@ part of 'dates_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$dateStateHash() => r'8f7668035d1b677497909c8c568ee506bd566875';
+String _$dateStateHash() => r'145e6250a470b3f78ed95428e5ddf7fb1b67defe';
 
 /// See also [DateState].
 @ProviderFor(DateState)
-final dateStateProvider = AutoDisposeNotifierProvider<DateState, bool>.internal(
+final dateStateProvider =
+    AutoDisposeNotifierProvider<DateState, String>.internal(
   DateState.new,
   name: r'dateStateProvider',
   debugGetCreateSourceHash:
@@ -19,13 +20,13 @@ final dateStateProvider = AutoDisposeNotifierProvider<DateState, bool>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef _$DateState = AutoDisposeNotifier<bool>;
-String _$startTimeStateHash() => r'5cefcb76357662be83ea9757de6d27ea85c1fe91';
+typedef _$DateState = AutoDisposeNotifier<String>;
+String _$startTimeStateHash() => r'a9ffa5353b4147e56c40aa5e215ebf3b0bed4ada';
 
 /// See also [StartTimeState].
 @ProviderFor(StartTimeState)
 final startTimeStateProvider =
-    AutoDisposeNotifierProvider<StartTimeState, bool>.internal(
+    AutoDisposeNotifierProvider<StartTimeState, String>.internal(
   StartTimeState.new,
   name: r'startTimeStateProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -35,13 +36,13 @@ final startTimeStateProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$StartTimeState = AutoDisposeNotifier<bool>;
-String _$finishTimeStateHash() => r'2d826aee224abad844713cf7a4907646df071fd4';
+typedef _$StartTimeState = AutoDisposeNotifier<String>;
+String _$finishTimeStateHash() => r'a99bbbd8751900e1098047331b88a09a8d8a29a4';
 
 /// See also [FinishTimeState].
 @ProviderFor(FinishTimeState)
 final finishTimeStateProvider =
-    AutoDisposeNotifierProvider<FinishTimeState, bool>.internal(
+    AutoDisposeNotifierProvider<FinishTimeState, String>.internal(
   FinishTimeState.new,
   name: r'finishTimeStateProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -51,6 +52,6 @@ final finishTimeStateProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$FinishTimeState = AutoDisposeNotifier<bool>;
+typedef _$FinishTimeState = AutoDisposeNotifier<String>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
