@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
-import 'package:riv_task/common/models/task_model.dart';
+// import 'package:riv_task/common/models/task_model.dart';
 import 'package:riv_task/common/utils/constants.dart';
 import 'package:riv_task/common/widgets/appstyle.dart';
 import 'package:riv_task/common/widgets/custom_btn.dart';
@@ -151,17 +151,26 @@ class _UpdateTaskState extends ConsumerState<UpdateTask> {
                     desc.text.isNotEmpty &&
                     startTime.isNotEmpty &&
                     endTime.isNotEmpty) {
-                  Task task = Task(
-                    title: title.text,
-                    desc: desc.text,
-                    isCompleted: 0,
-                    date: scheduledDate,
-                    startTime: startTime,
-                    endTime: endTime,
-                    remind: 0,
-                    repeat: 'yes',
-                  );
-                  ref.read(todoStateProvider.notifier).addItem(task);
+                  // Task task = Task(
+                  //   title: title.text,
+                  //   desc: desc.text,
+                  //   isCompleted: 0,
+                  //   date: scheduledDate,
+                  //   startTime: startTime,
+                  //   endTime: endTime,
+                  //   remind: 0,
+                  //   repeat: 'yes',
+                  // );
+                  ref.read(todoStateProvider.notifier).updateItem(
+                        widget.id,
+                        title.text,
+                        desc.text,
+                        0,
+                        scheduledDate,
+                        startTime.substring(10, 16),
+                        endTime.substring(10, 16),
+                      );
+                  // ref.read(todoStateProvider.notifier).addItem(task);
                   ref.read(dateStateProvider.notifier).setDate("");
                   ref.read(startTimeStateProvider.notifier).setStart("");
                   ref.read(finishTimeStateProvider.notifier).setStart("");

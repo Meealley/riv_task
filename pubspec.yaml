@@ -48,6 +48,7 @@ dependencies:
   sqflite: ^2.3.0
   dynamic_color: ^1.6.8
   flutter_datetime_picker_plus: ^2.1.0
+  firebase_core: ^2.22.0
 
 dev_dependencies:
   flutter_test:

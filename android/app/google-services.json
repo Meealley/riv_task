@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "398803139233",
+    "project_id": "todo-tut-90549",
+    "storage_bucket": "todo-tut-90549.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398803139233:android:5825ac491736ffcf84cee0",
+        "android_client_info": {
+          "package_name": "com.example.riv_task"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEW3yPRFCxC4oOKvJtHpzQoBkhDWHlE-8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

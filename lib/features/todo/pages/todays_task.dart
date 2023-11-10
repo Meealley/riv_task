@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:riv_task/common/utils/constants.dart';
 import 'package:riv_task/common/widgets/appstyle.dart';
 import 'package:riv_task/common/widgets/reusable_text.dart';
 import 'package:riv_task/features/todo/pages/updatetask.dart';
@@ -49,6 +50,8 @@ class TodayTask extends ConsumerWidget {
           },
           editWidget: GestureDetector(
             onTap: () {
+              titles = data.title.toString();
+              descs = data.desc.toString();
               Navigator.push(
                 context,
                 MaterialPageRoute(

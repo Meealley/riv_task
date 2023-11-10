@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:riv_task/common/utils/constants.dart';
 import 'package:riv_task/features/todo/controllers/todo/todo_provider.dart';
 
 import '../../../common/widgets/expansiontile.dart';
 import '../controllers/xpansion_provider.dart';
 import '../widgets/todo_tile.dart';
+import 'updatetask.dart';
 
 class DayAfterTomorrowList extends ConsumerWidget {
   const DayAfterTomorrowList({super.key});
@@ -48,7 +50,18 @@ class DayAfterTomorrowList extends ConsumerWidget {
               ref.read(todoStateProvider.notifier).deleteTodo(todo.id ?? 0);
             },
             editWidget: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                titles = todo.title.toString();
+                descs = todo.desc.toString();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => UpdateTask(
+                      id: todo.id ?? 0,
+                    ),
+                  ),
+                );
+              },
               child: Icon(FontAwesome.edit),
             ),
             switcher: SizedBox.shrink(),
