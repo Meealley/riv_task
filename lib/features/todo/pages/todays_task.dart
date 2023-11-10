@@ -3,6 +3,7 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riv_task/common/widgets/appstyle.dart';
 import 'package:riv_task/common/widgets/reusable_text.dart';
+import 'package:riv_task/features/todo/pages/updatetask.dart';
 
 import '../../../common/models/task_model.dart';
 import '../controllers/todo/todo_provider.dart';
@@ -47,7 +48,16 @@ class TodayTask extends ConsumerWidget {
             ref.read(todoStateProvider.notifier).deleteTodo(data.id ?? 0);
           },
           editWidget: GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => UpdateTask(
+                    id: data.id ?? 0,
+                  ),
+                ),
+              );
+            },
             child: Icon(FontAwesome.edit),
           ),
           color: color,

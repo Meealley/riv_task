@@ -28,3 +28,6 @@ List<dynamic> colors = [
   Colors.pink.shade300,
   Colors.black
 ];
+
+String titles = "";
+String descs = "";
