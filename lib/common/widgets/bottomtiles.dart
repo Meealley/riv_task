@@ -5,6 +5,7 @@ import 'package:riv_task/common/widgets/appstyle.dart';
 import 'package:riv_task/common/widgets/heightspacer.dart';
 import 'package:riv_task/common/widgets/reusable_text.dart';
 import 'package:riv_task/common/widgets/widthspacer.dart';
+import 'package:riv_task/features/todo/controllers/todo/todo_provider.dart';
 
 class BottomTitles extends StatelessWidget {
   final String text;
@@ -17,18 +18,20 @@ class BottomTitles extends StatelessWidget {
     return SizedBox(
       width: AppConst.kWidth,
       child: Padding(
-        padding: const EdgeInsets.all(8),
+        padding: EdgeInsets.all(8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Consumer(
               builder: (context, ref, child) {
+                var color =
+                    ref.read(todoStateProvider.notifier).getRandomColor();
                 return Container(
                   height: 80,
                   width: 5,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     //TODO: add dynamic color
-                    color: Colors.purple,
+                    color: color,
                     borderRadius: BorderRadius.all(
                       Radius.circular(10),
                     ),

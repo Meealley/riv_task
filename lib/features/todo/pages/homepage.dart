@@ -14,6 +14,7 @@ import 'package:riv_task/common/widgets/widthspacer.dart';
 import 'package:riv_task/features/todo/controllers/todo/todo_provider.dart';
 import 'package:riv_task/features/todo/controllers/xpansion_provider.dart';
 import 'package:riv_task/features/todo/pages/add_todo.dart';
+import 'package:riv_task/features/todo/pages/completed_task.dart';
 import 'package:riv_task/features/todo/pages/dayAfterTomorrow.dart';
 import 'package:riv_task/features/todo/pages/tomorrow_list.dart';
 import 'package:riv_task/features/todo/widgets/todo_tile.dart';
@@ -203,8 +204,12 @@ class _HomePageState extends ConsumerState<HomePage>
                         ),
                       ),
                       Container(
-                        color: Colors.grey,
+                        color: Colors.green.shade100,
                         height: AppConst.kHeight * 0.3,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: CompletedTask(),
+                        ),
                       ),
                     ],
                   ),

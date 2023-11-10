@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:riv_task/common/widgets/appstyle.dart';
+import 'package:riv_task/common/widgets/reusable_text.dart';
 
 import '../../../common/models/task_model.dart';
 import '../controllers/todo/todo_provider.dart';
@@ -29,6 +31,17 @@ class TodayTask extends ConsumerWidget {
         bool isCompleted = ref.read(todoStateProvider.notifier).getStatus(data);
         dynamic color = ref.read(todoStateProvider.notifier).getRandomColor();
 
+        if (todayList.isEmpty) {
+          return ReusableText(
+            text: "Empty task today",
+            style: appstyle(
+              23,
+              Colors.black,
+              FontWeight.bold,
+            ),
+          );
+        }
+
         return TodoTile(
           deleteTap: () {
             ref.read(todoStateProvider.notifier).deleteTodo(data.id ?? 0);
@@ -44,7 +57,17 @@ class TodayTask extends ConsumerWidget {
           end: data.endTime,
           switcher: Switch(
             value: isCompleted,
-            onChanged: (value) {},
+            onChanged: (value) {
+              ref.read(todoStateProvider.notifier).markAsCompleted(
+                    data.id ?? 0,
+                    data.title.toString(),
+                    data.desc.toString(),
+                    1,
+                    data.date.toString(),
+                    data.startTime.toString(),
+                    data.endTime.toString(),
+                  );
+            },
           ),
         );
       },
