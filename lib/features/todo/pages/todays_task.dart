@@ -61,7 +61,7 @@ class TodayTask extends ConsumerWidget {
                 ),
               );
             },
-            child: Icon(FontAwesome.edit),
+            child: const Icon(FontAwesome.edit),
           ),
           color: color,
           title: data.title,

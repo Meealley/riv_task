@@ -34,13 +34,13 @@ class CompletedTask extends ConsumerWidget {
           deleteTap: () {
             ref.read(todoStateProvider.notifier).deleteTodo(data.id ?? 0);
           },
-          editWidget: SizedBox.shrink(),
+          editWidget: const SizedBox.shrink(),
           color: color,
           title: data.title,
           description: data.desc,
           start: data.startTime,
           end: data.endTime,
-          switcher: Icon(
+          switcher: const Icon(
             FontAwesome.check_circle,
             color: Colors.green,
           ),

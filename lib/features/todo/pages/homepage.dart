@@ -198,16 +198,16 @@ class _HomePageState extends ConsumerState<HomePage>
                       Container(
                         color: Colors.purple.shade100,
                         height: AppConst.kHeight * 0.4,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                        child: const Padding(
+                          padding: EdgeInsets.all(8.0),
                           child: TodayTask(),
                         ),
                       ),
                       Container(
                         color: Colors.green.shade100,
                         height: AppConst.kHeight * 0.3,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                        child: const Padding(
+                          padding: EdgeInsets.all(8.0),
                           child: CompletedTask(),
                         ),
                       ),
@@ -216,9 +216,9 @@ class _HomePageState extends ConsumerState<HomePage>
                 ),
               ),
               const HeightSpacer(hght: 15),
-              TomorrowList(),
+              const TomorrowList(),
               const HeightSpacer(hght: 18),
-              DayAfterTomorrowList(),
+              const DayAfterTomorrowList(),
               const HeightSpacer(hght: 18),
             ],
           ),

@@ -61,9 +61,9 @@ class TomorrowList extends ConsumerWidget {
                   ),
                 );
               },
-              child: Icon(FontAwesome.edit),
+              child: const Icon(FontAwesome.edit),
             ),
-            switcher: SizedBox.shrink(),
+            switcher: const SizedBox.shrink(),
           ),
         // ReusableText(
         //     text: "I Plan to read my boooks all day long",

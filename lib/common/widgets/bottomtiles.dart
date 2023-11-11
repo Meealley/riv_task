@@ -18,7 +18,7 @@ class BottomTitles extends StatelessWidget {
     return SizedBox(
       width: AppConst.kWidth,
       child: Padding(
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -32,7 +32,7 @@ class BottomTitles extends StatelessWidget {
                   decoration: BoxDecoration(
                     //TODO: add dynamic color
                     color: color,
-                    borderRadius: BorderRadius.all(
+                    borderRadius: const BorderRadius.all(
                       Radius.circular(10),
                     ),
                   ),

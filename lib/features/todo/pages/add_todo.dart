@@ -66,7 +66,7 @@ class _AddTaskState extends ConsumerState<AddTask> {
                 FontWeight.normal,
               ),
             ),
-            HeightSpacer(hght: 30),
+            const HeightSpacer(hght: 30),
             CustomOutlnBtn(
               width: AppConst.kWidth,
               color2: Colors.yellow,
@@ -99,7 +99,7 @@ class _AddTaskState extends ConsumerState<AddTask> {
                 }, currentTime: DateTime.now(), locale: picker.LocaleType.en);
               },
             ),
-            HeightSpacer(hght: 12),
+            const HeightSpacer(hght: 12),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -121,7 +121,7 @@ class _AddTaskState extends ConsumerState<AddTask> {
                     }, currentTime: DateTime.now());
                   },
                 ),
-                WidthSpacer(wdth: 10),
+                const WidthSpacer(wdth: 10),
                 CustomOutlnBtn(
                   width: AppConst.kWidth * 0.4,
                   color2: Colors.yellow,
@@ -142,7 +142,7 @@ class _AddTaskState extends ConsumerState<AddTask> {
                 ),
               ],
             ),
-            HeightSpacer(hght: 20),
+            const HeightSpacer(hght: 20),
             CustomOutlnBtn(
               onTap: () {
                 if (title.text.isNotEmpty &&
